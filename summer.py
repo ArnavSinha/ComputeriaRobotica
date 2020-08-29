@@ -48,3 +48,60 @@ def user_response():
         return "None"
 
     return query
+
+
+if __name__ == '__main__':
+    initial_response()
+    while True:
+        query = user_response().lower()
+
+        if 'open google' in query:
+            # google.com
+            webbrowser.open("google.com")
+
+        elif 'open youtube' in query:
+            # youtube.com
+            webbrowser.open("youtube.com")
+
+        elif 'open whatsapp' in query:
+            # web.whatsapp.com
+            webbrowser.open("web.whatsapp.com")
+
+        elif 'wikipedia' in query:
+            # search on wikipedia
+            speak('Searching...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to Wikipedia,")
+            print(results)
+            speak(results)
+
+        elif 'the time' in query:
+            # return time
+            time = datetime.datetime.now().strftime("%H:%M:%S")
+            print(f"Time: {time}")
+            speak(f"Current time is {time}")
+
+        elif 'open vs code' in query:
+            # open vs code
+            path = "C:\\Program Files\\Microsoft VS Code\\Code.exe"
+            os.startfile(path)
+
+        elif 'open pycharm' in query:
+            # open pycharm
+            path = "C:\\Program Files\\JetBrains\\PyCharm Community Edition 2020.2.1\\bin\\pycharm64.exe"
+            os.startfile(path)
+
+        elif 'open edge' in query:
+            # open edge chromium
+            path = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+            os.startfile(path)
+
+        elif 'open chrome' in query:
+            # open chrome
+            path = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+            os.startfile(path)
+
+        elif 'open spotify' or 'play music' in query:
+            #open spotify
+            path = "C:\\Users\\Dell\\AppData\\Roaming\\Spotify\\Spotify.exe"
